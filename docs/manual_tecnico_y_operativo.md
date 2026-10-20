@@ -203,7 +203,30 @@ El archivo [cv-parser.ts](file:///C:/Users/geolo/.gemini/antigravity/scratch/geo
 
 ---
 
-## 5. Mantenimiento y Administración
+## 5. Panel de Control Maestro y Moderación (`/admin`)
+
+Para que el dueño y administrador de Geologgia Empleos pueda moderar y dar de baja contenido en tiempo real sin tocar código ni la base de datos:
+
+* **URL de Acceso:** **[https://empleos.geologgia.cl/admin](https://empleos.geologgia.cl/admin)**
+* **Mecanismos de Acceso:**
+  1. **Clave Maestra / PIN:** `geologgia2026!` (configurable en `ADMIN_SECRET_KEY`).
+  2. **Sesión OTP Verificada:** Si tienes sesión iniciada como `cavila1971@gmail.com` en el portal, el panel reconoce tu token automáticamente como Superadmin.
+
+### A. Funciones de Moderación de Postulantes (CVs)
+* **Dar de Baja / Pausar (1 Clic):** Cambia el estado a `PAUSED`. La ficha desaparece inmediatamente del directorio público pero se conserva en el panel por si el colega vuelve a buscar pega.
+* **Reactivar:** Si un perfil pausado vuelve a requerir visibilidad, un clic en "Reactivar" lo restaura en el portal público.
+* **Eliminación Definitiva:** Purgado total e irreversible del registro, datos y PDF en la base de datos (con modal de confirmación).
+* **Moderar Distinción UdeC:** Botón de 1 clic para otorgar o revocar la credencial dorada `🎓 Alumni UdeC`.
+* **Revisión de CV PDF:** Enlace directo para abrir y verificar el documento adjunto.
+
+### B. Funciones de Moderación de Ofertas Laborales (Jobs)
+* **Cerrar Vacante:** Pasa el aviso a estado `CLOSED` para que deje de recibir postulaciones en el portal público.
+* **Destacar Vacante:** Fija la oferta en las primeras posiciones con distintivo dorado.
+* **Eliminar Oferta:** Borra definitivamente vacantes caducadas o spam.
+
+---
+
+## 6. Mantenimiento y Operaciones Futuras
 
 1. **Para agregar nuevas ofertas manualmente:**
    - Cualquier persona o administrador puede hacer clic en **"Publicar Oferta"** en el encabezado. La vacante queda disponible al instante en la base de datos sin requerir compilación.
