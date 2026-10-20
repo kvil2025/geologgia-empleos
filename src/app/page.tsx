@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import {
   Briefcase,
   Users,
@@ -1359,6 +1360,14 @@ export default function HomePage() {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Aviso Legal & Ley de Datos</span>
             </button>
+            <Link
+              href="/admin"
+              className="hover:text-amber-300 transition-colors flex items-center gap-1 text-slate-500"
+              title="Acceso Administración"
+            >
+              <Lock className="w-3 h-3 text-slate-500" />
+              <span>Admin</span>
+            </Link>
             <a
               href="https://geologgia.cl"
               target="_blank"
