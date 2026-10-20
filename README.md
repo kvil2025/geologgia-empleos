@@ -3,7 +3,8 @@
 Este repositorio y carpeta contiene el **código fuente completo, 100% independiente y aislado** de la plataforma laboral **Geologgia Empleos** (Chile).
 
 🌐 **Producción:** [https://geologgia-empleos.vercel.app](https://geologgia-empleos.vercel.app)  
-🌐 **Dominio:** [https://empleos.geologgia.cl](https://empleos.geologgia.cl)
+🌐 **Dominio:** [https://empleos.geologgia.cl](https://empleos.geologgia.cl)  
+🐙 **Repositorio GitHub:** [https://github.com/kvil2025/geologgia-empleos](https://github.com/kvil2025/geologgia-empleos)
 
 ---
 
