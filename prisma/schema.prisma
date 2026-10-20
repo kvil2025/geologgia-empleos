@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id           String   @id @default(cuid())
+  title        String
+  company      String
+  location     String
+  shift        String?
+  category     String   @default("Exploración")
+  description  String   @db.Text
+  requirements String?  @db.Text
+  salary       String?
+  applyUrl     String?
+  applyEmail   String?
+  source       String   @default("Comunidad Geologgia")
+  sourceUrl    String?
+  isFeatured   Boolean  @default(false)
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([category])
+  @@index([location])
+  @@index([status])
+}
+
+model Candidate {
+  id              String   @id @default(cuid())
+  fullName        String
+  title           String
+  university      String?  @default("Universidad de Concepción")
+  isUdec          Boolean  @default(false)
+  isEarlyBird     Boolean  @default(true)
+  yearsExp        Int      @default(1)
+  specialties     String
+  preferredShift  String   @default("7x7")
+  preferredRegion String   @default("Norte Grande")
+  summary         String   @db.Text
+  linkedinUrl     String?
+  phone           String?
+  email           String
+  cvUrl           String?  @db.Text
+  cvFileName      String?
+  status          String   @default("ACTIVE")
+  managementToken String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  @@index([title])
+  @@index([status])
+  @@index([isUdec])
+  @@index([managementToken])
+}
+
+model EmailVerification {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  token     String   @unique
+  verified  Boolean  @default(false)
+  attempts  Int      @default(0)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@index([token])
+  @@index([code])
+}
